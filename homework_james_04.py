@@ -94,22 +94,32 @@ activities = ["Football", "Music", "Art", "Dance"]
 
 # Task 4.1 - filter out students who have grades below 80 (sorry Jane!)
 
+# PREVIOUS SOLUTION: 
 # check for grades below 80 
-grades_below_eighty = []
-for grade in grades:
-    if grade < 80:
-        grades_below_eighty.append(grade)
+# grades_below_eighty = []
+# for grade in grades:
+#     if grade < 80:
+#         grades_below_eighty.append(grade)
 
-# remove items in lists at index of grades below 80
-for i in grades_below_eighty:
-    index = grades.index(i)
-    removed_student = students.pop(index)
-    removed_grade = grades.pop(index)
-    removed_activity = activities.pop(index)
-    print(f"Removing Student: \"{removed_student}\", {removed_grade}, \"{removed_activity}\"")
+# # remove items in lists at index of grades below 80
+# for i in grades_below_eighty:
+#     index = grades.index(i)
+#     removed_student = students.pop(index)
+#     removed_grade = grades.pop(index)
+#     removed_activity = activities.pop(index)
+#     print(f"Removing Student: \"{removed_student}\", {removed_grade}, \"{removed_activity}\"")
+
+for i in range(len(students)):
+    if grades[i] < 80:
+        print(f"\"{students[i]}\", {grades[i]}, \"{activities[i]}\"")
 
 # Task 4.2 - add remaining students to new list
-students_approved = students.copy()
+
+# PREVIOUS SOLUTION: students_approved = students.copy()
+students_approved = []
+for i in range(len(students)):
+    if grades[i] >= 80:
+        students_approved.append(students[i])
 
 # Task 4.3 - print new list
 print(f"students_approved = {students_approved}")
